@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 25.0.1705.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EliaGroup.API", "EliaGroup.API\EliaGroup.API.csproj", "{D247D306-219E-464D-9392-F1B96A779C53}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D247D306-219E-464D-9392-F1B96A779C53}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D247D306-219E-464D-9392-F1B96A779C53}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D247D306-219E-464D-9392-F1B96A779C53}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D247D306-219E-464D-9392-F1B96A779C53}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {73C9A150-E1CB-430F-A65C-385B0ADCDE75}
+	EndGlobalSection
+EndGlobal
