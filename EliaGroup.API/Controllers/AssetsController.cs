@@ -27,13 +27,28 @@ namespace EliaGroup.API.Controllers
             _mapper = mapper;
         }
         // GET: api/values
-        [HttpGet]
+        [HttpGet()]
         [Authorize]
-        public async Task<ActionResult<IEnumerable<AssetReadOnlyDto>>> GetAssets()
+        public async Task<ActionResult<IEnumerable<AssetReadOnlyDto>>> GetAssets([FromQuery]string? assetName, [FromQuery] string? fromDate, [FromQuery] string? toDate)
         {
-            var assets = await _context.Assets
-                .Include(q=>q.AssetType)
-                .ToListAsync();
+            var query = _context.Assets.Include(q=>q.AssetType).AsQueryable();
+            if (assetName != null && assetName != "undefined")
+            {
+                query = query.Where(q => q.Name.ToLower().Contains(assetName));
+            }
+            if (fromDate != null && fromDate != "undefined")
+            {
+                query = query.Where(q => q.EndDate >= DateTime.Parse(fromDate));
+            }
+            if (toDate !=null && toDate != "undefined")
+            {
+                query = query.Where(q => q.EndDate <= DateTime.Parse(toDate));
+            }
+            var assets = await query.ToListAsync();
+
+            //var assets = await _context.Assets
+            //    .Include(q=>q.AssetType)
+            //    .ToListAsync();
             var assetDtos = _mapper.Map<IEnumerable<AssetReadOnlyDto>>(assets);
             return Ok(assetDtos);
         }
