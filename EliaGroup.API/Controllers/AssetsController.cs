@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using AutoMapper;
 using EliaGroup.API.Data;
 using EliaGroup.API.Dtos.Assets;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -13,6 +14,8 @@ using Microsoft.EntityFrameworkCore;
 namespace EliaGroup.API.Controllers
 {
     [Route("api/[controller]")]
+    [ApiController]
+
     public class AssetsController : ControllerBase
     {
         private readonly EliaDbContext _context;
@@ -25,6 +28,7 @@ namespace EliaGroup.API.Controllers
         }
         // GET: api/values
         [HttpGet]
+        [Authorize]
         public async Task<ActionResult<IEnumerable<AssetReadOnlyDto>>> GetAssets()
         {
             var assets = await _context.Assets

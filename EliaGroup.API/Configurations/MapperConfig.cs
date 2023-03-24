@@ -3,6 +3,7 @@ using AutoMapper;
 using EliaGroup.API.Data;
 using EliaGroup.API.Dtos.Assets;
 using EliaGroup.API.Dtos.AssetTypes;
+using EliaGroup.API.Dtos.Users;
 
 namespace EliaGroup.API.Configurations
 {
@@ -17,6 +18,8 @@ namespace EliaGroup.API.Configurations
 				.ReverseMap();
 
             CreateMap<AssetTypeReadOnlyDto, AssetType>().ReverseMap();
+
+            CreateMap<ApiUser, UserDto>().ReverseMap();
 
         }
     }
