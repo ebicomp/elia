@@ -28,7 +28,7 @@ namespace EliaGroup.API.Controllers
         }
         // GET: api/values
         [HttpGet()]
-        [Authorize]
+        //[Authorize]
         public async Task<ActionResult<IEnumerable<AssetReadOnlyDto>>> GetAssets([FromQuery]string? assetName, [FromQuery] string? fromDate, [FromQuery] string? toDate)
         {
             var query = _context.Assets.Include(q=>q.AssetType).AsQueryable();
